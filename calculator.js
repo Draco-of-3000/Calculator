@@ -8,7 +8,7 @@ function addition(){
 
 function subtraction(){
     let difference = arguments[0];
-    for(let i = 0; i < arguments.length; i--){
+    for(let i = 1; i < arguments.length; i--){
         minus -= arguemnts[i];
     }
     return difference;
@@ -22,4 +22,10 @@ function multiplication(){
     return product;
 }
 
-
+function division(){
+    let remainder = arguments[0];
+    for(let i = 1; i < arguments.length; i++){
+        remainder /= arguments[i];
+    }
+    return division;
+}
