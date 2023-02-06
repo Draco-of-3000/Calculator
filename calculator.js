@@ -27,7 +27,7 @@ function division(){
     for(let i = 1; i < arguments.length; i++){
         remainder /= arguments[i];
     }
-    return division;
+    return remainder;
 }
 
 function operate(operator, num1, num2){
