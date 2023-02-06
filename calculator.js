@@ -8,11 +8,11 @@ function addition(){
 
 function subtraction(){
     let difference = arguments[0];
-    for(let i = 1; i < arguments.length; i--){
-        minus -= arguemnts[i];
+    for (let i = 1; i < arguments.length; i++) {
+      difference -= arguments[i];
     }
     return difference;
-}
+  }
 
 function multiplication(){
     let product = 1;
@@ -35,7 +35,7 @@ function operate(operator, num1, num2){
         case '+':
             return addition(num1, num2);
         case '-':
-            return subtraction(num1. num2);
+            return subtraction(num1, num2);
         case '*':
             return multiplication(num1. num2);
         case '/':
