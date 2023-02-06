@@ -7,11 +7,19 @@ function addition(){
 }
 
 function subtraction(){
-    let difference = [0];
+    let difference = arguments[0];
     for(let i = 0; i < arguments.length; i--){
         minus -= arguemnts[i];
     }
     return difference;
+}
+
+function multiplication(){
+    let product = 1;
+    for(let i = 0; i < arguments.length; i++){
+        product *= arguments[i];
+    }
+    return product;
 }
 
 
