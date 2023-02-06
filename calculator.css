@@ -6,6 +6,7 @@
     height: 100px;
     width: 800px;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 .display1 {
@@ -16,5 +17,57 @@
 
 .display2 {
     border: 1px solid rosybrown;
+}
+
+#keys-container {
+    border: 3px solid black;   
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 600px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.numbers-container {
+    border: 3px solid yellow;   
+    width: 50%;
+    margin-left: -47%; 
+}
+
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding: 20px;
+}
+
+
+.number {
+    width: 100px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.zero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    margin: 0 auto;
+    margin-left: 36%;
+}
+
+#operators-container {
+    border: 3px solid green;   
+    width: 30%;
+    margin-right: -30%;
 }
 
