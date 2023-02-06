@@ -29,3 +29,18 @@ function division(){
     }
     return division;
 }
+
+function operate(operator, num1, num2){
+    switch(operator){
+        case '+':
+            return addition(num1, num2);
+        case '-':
+            return subtraction(num1. num2);
+        case '*':
+            return multiplication(num1. num2);
+        case '/':
+            return division(num1, num2);
+        default:
+            return "Select an operator";
+    }
+}
