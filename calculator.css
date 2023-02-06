@@ -1,3 +1,20 @@
 #display-container {
     border: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 100px;
+    width: 800px;
+    margin: 0 auto;
 }
+
+.display1 {
+    border: 1px solid blue;
+    width: 70%;
+    margin-left: -30%;
+}
+
+.display2 {
+    border: 1px solid rosybrown;
+}
+
