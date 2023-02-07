@@ -44,3 +44,15 @@ function operate(operator, num1, num2){
             return "Select an operator";
     }
 }
+
+function populateDisplay(){
+    let numbers = document.querySelectorAll('.number');
+    numbers.forEach(number => {
+        number.addEventListener('click', () => {
+            let displayValue =  document.querySelector('.display1').textContent;
+            document.querySelector('display1').textContent = number.textContent;
+        });
+    });
+}
+
+let displayValue =  document.querySelector('.display1').textContent;
