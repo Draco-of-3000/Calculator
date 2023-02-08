@@ -45,14 +45,28 @@ function operate(operator, num1, num2){
     }
 }
 
-function populateDisplay(){
-    let numbers = document.querySelectorAll('.number');
-    numbers.forEach(number => {
-        number.addEventListener('click', () => {
-            let displayValue =  document.querySelector('.display1').textContent;
-            document.querySelector('display1').textContent = number.textContent;
-        });
-    });
-}
+let displayValue = '';
 
-let displayValue =  document.querySelector('.display1').textContent;
+
+//Function To Populate Dispplay
+document.addEventListener('DOMContentLoaded', function populateDisplay(){
+    
+    //Get all elements with class 'number'
+    let numbers = document.querySelectorAll('.number');
+
+    //Loop through all elements with class number
+    numbers.forEach(number => {
+
+    //Add event listener to each number button
+      number.addEventListener('click', () => {
+
+    //Concatenate the number to the existing display value
+        displayValue += number.textContent;
+        document.querySelector('.display1').textContent = displayValue;
+      });
+    });
+});
+
+populateDisplay();
+
+
