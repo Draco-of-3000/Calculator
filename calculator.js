@@ -31,16 +31,19 @@ function division(){
 }
 
 function operate(operation, num1, num2) {
+    if (num1 === 0 || num2 === 0) {
+        return "Hey, Hey, Hey, PLIS!! We don't do that here! No division by Zero allowed";
+    }
     if (operation === '+') {
-      return addition(num1, num2);
+        return addition(num1, num2);
     } else if (operation === '-') {
-      return subtraction(num1, num2);
-    } else if (operation === '×') {
-      return multiplication(num1, num2);
+        return subtraction(num1, num2);
     } else if (operation === '÷') {
-      return division(num1, num2);
+        return multiplication(num1, num2);
+    } else if (operation === '×') {
+        return division(num1, num2);
     } else {
-      return "Invalid Operator";
+        return "Your code failed nigga";
     }
 }
 
