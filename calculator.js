@@ -30,9 +30,13 @@ function division(){
     return Number(remainder);
 }
 
+const operatorButtons = document.querySelectorAll('.operators .operator');
 
 function operate(operator, num1, num2){
-    switch(operator){
+    num1 = parseInt(num1);
+    num2 = parseInt(num2);
+
+    switch (operator) {
         case '+':
             return addition(num1, num2);
         case '-':
@@ -45,6 +49,7 @@ function operate(operator, num1, num2){
             return "Select an operator";
     }
 }
+
 
 let displayValue = '';
 
@@ -60,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function populateDisplay(){
 
     //Add event listener to each number button
       number.addEventListener('click', () => {
+        console.log(typeof(number));
 
     //Concatenate the number to the existing display value
         displayValue += number.textContent;
@@ -81,13 +87,15 @@ document.addEventListener('DOMContentLoaded', function(){
     numbers.forEach(number => {
         number.addEventListener('click', () => {
             if(!operatorClicked){
-                let tempFirstNumber = Number(number.textContent);
+                let tempFirstNumber = parseInt(number.textContent);
                 firstNumber = tempFirstNumber;
                 displayValue = firstNumber;
+                console.log(typeof(firstNumber));
             }
             else {
-                secondNumber = Number(number.textContent);
+                secondNumber = parseInt(number.textContent);
                 displayValue = `${firstNumber} ${operation} ${secondNumber}`;
+                console.log(typeof(secondNumber));
             };
             document.querySelector(".display1").textContent = displayValue;
         });
@@ -100,9 +108,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let operators = document.querySelectorAll('.operator');
     operators.forEach(operator => {
         operator.addEventListener('click', () => {
+            console.log("Operator clicked: " + operator.textContent);
             operatorClicked = true;
             operation = operator.textContent;
-            firstNumber = Number(displayValue);
+            firstNumber = parseInt(displayValue);
             displayValue = `${firstNumber} ${operation}` + " ";
             document.querySelector(".display1").textContent = displayValue;
         });
@@ -113,10 +122,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     let equals = document.querySelector(".equals");
-    console.log(equals);
-  
     equals.addEventListener("click", function() {
-        result = operate(operation, firstNumber, secondNumber);
+        let num1 = parseInt(firstNumber);
+        let num2 = parseInt(secondNumber);
+        console.log("typeof num1:", typeof num1);
+        console.log("value of num1:", num1);
+        console.log("typeof num2:", typeof num2);
+        console.log("value of num2:", num2);
+        result = operate(operation, num1, num2);
         document.querySelector('.display2').textContent = result;
+        console.log(result);
     });
 });
