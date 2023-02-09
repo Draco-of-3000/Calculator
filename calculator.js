@@ -30,25 +30,43 @@ function division(){
     return Number(remainder);
 }
 
-const operatorButtons = document.querySelectorAll('.operators .operator');
-
-function operate(operation, num1, num2){
-    if (operation === '+'){
-        return addition(num1, num2);
-    }
-    else if (operation === '-'){
-        return subtraction(num1, num2);
-    }
-    else if (operation === '*'){
-        return multiplication(num1, num2);
-    }
-    else if (operation === '/'){
-        return division(num1, num2);
-    }
-    else {
-        return "Your code failed nigga"
+function operate(operation, num1, num2) {
+    if (operation === '+') {
+      return addition(num1, num2);
+    } else if (operation === '-') {
+      return subtraction(num1, num2);
+    } else if (operation === '×') {
+      return multiplication(num1, num2);
+    } else if (operation === '÷') {
+      return division(num1, num2);
+    } else {
+      return "Invalid Operator";
     }
 }
+
+
+
+const operatorButtons = document.querySelectorAll('.operators .operator');
+operatorButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      let operation;
+      if (event.target.classList.contains('plus')) {
+        operation = '+';
+      } else if (event.target.classList.contains('minus')) {
+        operation = '-';
+      } else if (event.target.classList.contains('multiplication')) {
+        operation = '*';
+      } else if (event.target.classList.contains('division')) {
+        operation = '/';
+      }
+  
+      // Add code here to get the values for num1 and num2
+  
+      const result = operate(operation, num1, num2);
+      console.log(result);
+    });
+});
+
 
 
 let displayValue = ''; //Declare display variable to be used later
@@ -108,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         operator.addEventListener('click', () => {
             operatorClicked = true; //When operator is clicked, update operatorClicked variable to true
             operation = operator.textContent; //Copy value of operator clicked into operation variable
+            console.log("Operator clicked: " + operator.textContent);
             let displayValue = `${firstNumber} ${operation}${secondNumber ? "" : " "}`; //Display numbers and operators clicked
             document.querySelector(".display1").textContent = displayValue;
         });
