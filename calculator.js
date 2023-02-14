@@ -38,9 +38,9 @@ function operate(operation, num1, num2) {
         return addition(num1, num2);
     } else if (operation === '-') {
         return subtraction(num1, num2);
-    } else if (operation === '÷') {
-        return multiplication(num1, num2);
     } else if (operation === '×') {
+        return multiplication(num1, num2);
+    } else if (operation === '÷') {
         return division(num1, num2);
     } else {
         return "Your code failed nigga";
