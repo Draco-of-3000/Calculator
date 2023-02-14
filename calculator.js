@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     //Function to clear calculator history after clear button is clicked
-    let clear = document.querySelector(".clear");
+    let clear = document.querySelector(".clear"); //Add event listener to clear button
     clear.addEventListener("click", function() {
         firstNumber = null;
         secondNumber = null;
