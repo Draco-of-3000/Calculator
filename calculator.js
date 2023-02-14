@@ -32,8 +32,9 @@ function division(){
 
 function operate(operation, num1, num2) {
     if (num1 === 0 || num2 === 0) {
-        return "Hey, Hey, Hey, PLIS!! We don't do that here! No division by Zero allowed";
+        return "Invalid operation, you didn't select an operand before and after an operator or you tried to to divide by zero";
     }
+    
     if (operation === '+') {
         return addition(num1, num2);
     } else if (operation === '-') {
