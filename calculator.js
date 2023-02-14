@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function populateDisplay(){
 
 let firstNumber = null;
 let operatorClicked = false;
+let equalsClicked = false;
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -124,16 +125,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    let operators = document.querySelectorAll('.operator'); // Add event listener to every element with class "operator"
+    let operators = document.querySelectorAll('.operator'); // Select all elements with class 'operator' and store them in the variable 'operators'
+
+    // Loop through each operator and attach a click event listener
     operators.forEach(operator => {
-        operator.addEventListener('click', () => {
-            operatorClicked = true; //When operator is clicked, update operatorClicked variable to true
-            operation = operator.textContent; //Copy value of operator clicked into operation variable
-            console.log("Operator clicked: " + operator.textContent);
-            let displayValue = `${firstNumber} ${operation}${secondNumber ? "" : " "}`; //Display numbers and operators clicked
-            document.querySelector(".display1").textContent = displayValue;
-        });
+      operator.addEventListener('click', () => {
+        // Check if firstNumber, secondNumber, and operation are all not null
+        if (firstNumber !== null && secondNumber !== null && operation !== "") {
+          let num1 = Number(firstNumber);
+          let num2 = Number(secondNumber); 
+          firstNumber = operate(operation, num1, num2); // Call the operate function with the values of operation, num1, and num2 and store the result in firstNumber
+          operation = operator.textContent; // Set operation to the text content of the current operator
+          secondNumber = null; // Set secondNumber to null
+        } else {
+          operatorClicked = true; // Set operatorClicked to true
+          operation = operator.textContent; // Set operation to the text content of the current operator
+        }
+        // Construct the display value by concatenating firstNumber, operation, and (if secondNumber is not null) secondNumber
+        let displayValue = `${firstNumber} ${operation}${secondNumber ? "" : " "}`;
+        // Set the text content of the element with class '.display1' to the value of displayValue
+        document.querySelector(".display1").textContent = displayValue;
+      });
     });
+    
 
     //Function to evaluate firstNumber and secondNumber when an operator and equals button is clicked 
     let equals = document.querySelector(".equals"); // Add event listener to every element with class "equals"
