@@ -101,53 +101,62 @@ document.addEventListener('DOMContentLoaded', function populateDisplay(){
 let firstNumber = null;
 let operatorClicked = false;
 let equalsClicked = false;
+let decimalClicked = false
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function calculate() {
     let numbers = document.querySelectorAll('.number'); // Add event listener to every element with class "number"
     let operation = ""; //Declare operation(operater clicked by user) variable
     let secondNumber = ""; //Declare second number variable
 
-    //Function to declare first and second number after an operator is clicked
-    numbers.forEach(number => {
-        number.addEventListener('click', () => {
-            let textContent = number.textContent;
-            if (!isNaN(textContent)) {
-                if (!operatorClicked) { //If operatorClicked !== true, make the clicked numbers the first number 
-                    firstNumber = firstNumber ? firstNumber * 10 + Number(textContent) : Number(textContent);
-                } else {
-                    secondNumber = secondNumber ? secondNumber * 10 + Number(textContent) : Number(textContent); //If operatorClicked == true, make the clicked numbers the first number 
-                }
-                let displayValue = `${firstNumber} ${operation || ""} ${secondNumber || ""}`; //Display numbers and operators clicked
-                document.querySelector(".display1").textContent = displayValue;
-            } else {
-                console.error("textContent is not a number:", textContent);
-            }
-        });
-    });
-
-    let operators = document.querySelectorAll('.operator'); // Select all elements with class 'operator' and store them in the variable 'operators'
-
-    // Loop through each operator and attach a click event listener
-    operators.forEach(operator => {
-      operator.addEventListener('click', () => {
-        // Check if firstNumber, secondNumber, and operation are all not null
-        if (firstNumber !== null && secondNumber !== null && operation !== "") {
-          let num1 = Number(firstNumber);
-          let num2 = Number(secondNumber); 
-          firstNumber = operate(operation, num1, num2); // Call the operate function with the values of operation, num1, and num2 and store the result in firstNumber
-          operation = operator.textContent; // Set operation to the text content of the current operator
-          secondNumber = null; // Set secondNumber to null
-        } else {
-          operatorClicked = true; // Set operatorClicked to true
-          operation = operator.textContent; // Set operation to the text content of the current operator
+  //Function to declare first and second number after an operator is clicked
+  numbers.forEach(number => {
+    number.addEventListener('click', () => {
+      let textContent = number.textContent;
+      if (!isNaN(textContent) || textContent === '.') {
+        if (textContent === '.' && decimalClicked) {
+          return;
         }
-        // Construct the display value by concatenating firstNumber, operation, and (if secondNumber is not null) secondNumber
-        let displayValue = `${firstNumber} ${operation}${secondNumber ? "" : " "}`;
-        // Set the text content of the element with class '.display1' to the value of displayValue
+        if (textContent === '.') {
+          decimalClicked = true;
+        }
+        if (!operatorClicked) { 
+          //If operatorClicked !== true, make the clicked numbers the first number 
+          firstNumber = firstNumber ? firstNumber + textContent : textContent;
+        } else {
+          secondNumber = secondNumber ? secondNumber + textContent : textContent; //If operatorClicked == true, make the clicked numbers the first number 
+        }
+        let displayValue = `${firstNumber} ${operation || ""} ${secondNumber || ""}`; //Display numbers and operators clicked
         document.querySelector(".display1").textContent = displayValue;
-      });
+      } else {
+        console.error("textContent is not a number:", textContent);
+      }
     });
+  });
+
+  let operators = document.querySelectorAll('.operator'); // Select all elements with class 'operator' and store them in the variable 'operators'
+
+  // Loop through each operator and attach a click event listener
+  operators.forEach(operator => {
+    operator.addEventListener('click', () => {
+      // Check if firstNumber, secondNumber, and operation are all not null
+      if (firstNumber !== null && secondNumber !== null && operation !== "") {
+        let num1 = Number(firstNumber);
+        let num2 = Number(secondNumber); 
+        firstNumber = operate(operation, num1, num2); // Call the operate function with the values of operation, num1, and num2 and store the result in firstNumber
+        operation = operator.textContent; // Set operation to the text content of the current operator
+        secondNumber = null; // Set secondNumber to null
+      } else {
+        operatorClicked = true; // Set operatorClicked to true
+        operation = operator.textContent; // Set operation to the text content of the current operator
+      }
+      // Construct the display value by concatenating firstNumber, operation, and (if secondNumber is not null) secondNumber
+      let displayValue = `${firstNumber} ${operation}${secondNumber ? "" : " "}`;
+      // Set the text content of the element with class '.display1' to the value of displayValue
+      document.querySelector(".display1").textContent = displayValue;
+      decimalClicked = false;
+    });
+  });
     
 
     //Function to evaluate firstNumber and secondNumber when an operator and equals button is clicked 
