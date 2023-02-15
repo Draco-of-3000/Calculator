@@ -139,3 +139,17 @@
     font-size: 22px;
     font-weight: bold;
 }
+
+.backspace {
+    width: 100px;
+    height: 70px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: bo;
+    font-size: 20px;
+    margin: 0 auto;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: bold; 
+}
