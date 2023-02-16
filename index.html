@@ -11,53 +11,64 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Julee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 </head>
 <body class="body">
-    <h1>Calculator</h1>
-    <div id="display-container">
-        <div class="display1-container">
-            <div class="display1">1 + 1</div>
-        </div>
-        <div class="display2-container">
-            <div class="display2">= 2</div>
-        </div>
-    </div>
-    <div id="keys-container">
-        <div class="numbers-container">
-            <div class="numbers">
-                <div class="row">
-                    <button class="number">1</button>
-                    <button class="number">4</button>
-                    <button class="number">7</button>
-                    <button class="number decimal">.</button>  
-                </div>
-                <div class="row">
-                    <button class="number">2</button>
-                    <button class="number">5</button>
-                    <button class="number">8</button>
-                    <button class="number zero">0</button>  
-                </div>
-                <div class="row">
-                    <button class="number">3</button>
-                    <button class="number">6</button>
-                    <button class="number">9</button>  
-                </div>
+    <div class="content">
+        <h1>Calculator</h1>
+        <div id="display-container">
+            <div class="display1-container">
+                <div class="display1">2 + 2 is 4 minus 1</div>
+            </div>
+            <div class="display2-container">
+                <div class="display2">That's 3 quick maths</div>
             </div>
         </div>
-        <div id="operators-container">
-            <div class="operators">
-                <button class="operator plus">+</button>
-                <button class="operator minus">-</button>
-                <button class="operator multiplication">&#215;</button>
-                <button class="operator division">&#247;</button> 
+        <div id="keys-container">
+            <div class="numbers-container">
+                <div class="numbers">
+                    <div class="row">
+                        <button class="number">1</button>
+                        <button class="number">4</button>
+                        <button class="number">7</button>
+                        <button class="number decimal">.</button>  
+                    </div>
+                    <div class="row">
+                        <button class="number">2</button>
+                        <button class="number">5</button>
+                        <button class="number">8</button>
+                        <button class="number zero">0</button>  
+                    </div>
+                    <div class="row">
+                        <button class="number">3</button>
+                        <button class="number">6</button>
+                        <button class="number">9</button>  
+                    </div>
+                </div>
+            </div>
+            <div id="operators-container">
+                <div class="operators">
+                    <button class="operator plus">+</button>
+                    <button class="operator minus">-</button>
+                    <button class="operator multiplication">&#215;</button>
+                    <button class="operator division">&#247;</button> 
+                </div>
+            </div>
+            <div id="equals-container">
+                <button class="action equals">=</button>
+                <button class="action clear">Clear</button>
+                <button class="action backspace">Backspace</button>
+    
             </div>
         </div>
-        <div id="equals-container">
-            <button class="action equals">=</button>
-            <button class="action clear">Clear</button>
-            <button class="action backspace">Backspace</button>
-
-        </div>
     </div>
+    <footer>
+        <div class="footer">
+            Built by Draco 3000
+            <a href="https://github.com/Draco-of-3000" target="_blank" rel="noopener noreferrer"><ion-icon name="logo-github"></ion-icon></a>
+          </div>          
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
