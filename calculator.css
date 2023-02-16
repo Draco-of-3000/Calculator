@@ -1,4 +1,10 @@
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
 #display-container {
+    background-color: white;
     border: 3px solid black;
     border-radius: 25px;
     display: flex;
@@ -10,34 +16,57 @@
     margin-bottom: 50px;
 }
 
+#display-container {
+    animation: border-color 5s ease-in-out infinite;
+}
+
+  
+@keyframes border-color {
+    0% {
+      border-color: rgb(255, 0, 0);
+    }
+    50% {
+      border-color: rgb(0, 255, 0);
+    }
+    100% {
+      border-color: rgb(0, 0, 255);
+    }
+}
+
+
+
 h1 {
     text-align: center;
     font-family: 'Tangerine', cursive;
     font-size: 100px;
-    text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
     animation: text-shadow-animation 2s infinite alternate;
 }
 
 @keyframes text-shadow-animation {
     0% {
-      text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      text-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
     }
     100% {
-      text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+      text-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
     }
 }
 
 .display1-container {
+    font-size: 32px;
+    font-family: 'Julee', cursive;
     display: flex;
-    border: 1px solid blue;
+    color: #1a1a1a;
     width: 70%;
     float: left;
     align-items: center;
 }
 
 .display2-container {
+    font-size: 32px;
+    font-family: 'Julee', cursive;
     display: flex;
-    border: 1px solid rosybrown;
+    color: #1a1a1a;
     width: 30%;
     float: right;
     align-items: center;
@@ -77,17 +106,36 @@ h1 {
 
 
 .number {
+    font-family: 'Julee', cursive;
     width: 100px;
     height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
-    border: 3px solid black;
+    border: 3px solid whitesmoke;
     border-radius: 5px;
-    font-size: 22px;
+    font-size: 32px;
     font-weight: bold;
 }
+
+.number, .operator, .action {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    animation: drop-shadow 5s ease-in-out infinite;
+}
+
+@keyframes drop-shadow {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(0, 0, 255, 0.7);
+    }
+}
+
 
 .zzero {
     display: flex;
@@ -119,7 +167,7 @@ h1 {
 .operator {
     width: 100px;
     height: 70px;
-    border: 3px solid black;
+    border: 3px solid whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,14 +179,14 @@ h1 {
 }
 
 .action {
-    font-family: 'Tangerine', cursive;
+    font-family: 'Julee', cursive;
     width: 100px;
     height: 70px;
-    border: 3px solid black;
+    border: 3px solid whitesmoke;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 32px;
+    font-size: 24px;
     margin: 0 auto;
     margin-top: 20px;
     border-radius: 5px;
@@ -146,5 +194,5 @@ h1 {
 }
 
 .backspace {
-    font-size: 32px;
+    font-size: 24px;
 }
