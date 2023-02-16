@@ -103,7 +103,6 @@ let operatorClicked = false;
 let equalsClicked = false;
 let decimalClicked = false
 
-
 document.addEventListener('DOMContentLoaded', function calculate() {
     let numbers = document.querySelectorAll('.number'); // Add event listener to every element with class "number"
     let operation = ""; //Declare operation(operater clicked by user) variable
@@ -182,6 +181,29 @@ document.addEventListener('DOMContentLoaded', function calculate() {
         displayValue = "";
         document.querySelector(".display1").textContent = displayValue;
         document.querySelector('.display2').textContent = "";
+    });
+
+    let backspaceButton = document.querySelector('.backspace');
+
+    backspaceButton.addEventListener('click', () => {
+        displayValue = displayValue.slice(0, -1);
+        document.querySelector('.display1').textContent = displayValue;
+    
+        // Split the displayValue variable based on the current operator
+        let displayValues = displayValue.split(' ');
+        if (displayValues.length > 0) {
+            // Update firstNumber with the first value in the displayValues array
+            firstNumber = displayValues[0];
+    
+            // If there is an operator, update secondNumber with the second value in the displayValues array
+            if (displayValues.length > 1) {
+                operation = displayValues[1];
+                secondNumber = displayValues[2];
+            } else {
+                operation = '';
+                secondNumber = '';
+            }
+        }
     });
     
 
